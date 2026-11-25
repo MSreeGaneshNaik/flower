@@ -1,0 +1,4 @@
+:HL["/flower/_next/static/chunks/0lh8b5frp2oc_.css","style"]
+:HC["/",""]
+1:[["children",{"s":"__PAGE__","h":160}]]
+0:{"b":"YIEZg0Zc_0qh1TuCdU_4z","t":{"t":{"s":"","h":80,"c":"$Q1"}}}

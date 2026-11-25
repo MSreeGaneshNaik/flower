@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flower · launch film</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<main class="wrap">
+  <header class="top">
+    <h1 class="wordmark"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><g fill="#e2669a" opacity="0.9"><ellipse cx="12" cy="6.6" rx="3.1" ry="4.6"/><ellipse cx="12" cy="6.6" rx="3.1" ry="4.6" transform="rotate(72 12 12)"/><ellipse cx="12" cy="6.6" rx="3.1" ry="4.6" transform="rotate(144 12 12)"/><ellipse cx="12" cy="6.6" rx="3.1" ry="4.6" transform="rotate(216 12 12)"/><ellipse cx="12" cy="6.6" rx="3.1" ry="4.6" transform="rotate(288 12 12)"/></g><circle cx="12" cy="12" r="2.4" fill="#03050b"/></svg><span>Flower launch film</span></h1>
+    <p class="spec">3840 × 2160 · 60 fps · 60 s · drawn and encoded on this computer</p>
+  </header>
+
+  <section class="stage" id="stage" aria-label="Preview">
+    <div class="transport">
+      <button class="icon" id="play" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" width="20" height="20"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 24 24" width="20" height="20"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor"/></svg></button>
+      <input id="scrub" type="range" min="0" max="60" step="0.0166667" value="0" aria-label="Time">
+      <span class="clock" id="clock">00:00.0 / 01:00.0</span>
+      <button class="btn ghost" id="inspect">View 4K frame</button>
+    </div>
+  </section>
+
+  <section class="cards">
+    <div class="card">
+      <h2>1. The track</h2>
+      <label class="drop" id="drop" data-state="">
+        <input type="file" id="file" accept="audio/mpeg,audio/*">
+        <span class="drop-main">Add “Neon Dust – Vice City” (mp3)</span>
+        <span class="drop-sub">Drop it here or choose the file. It stays on this computer.</span>
+      </label>
+      <p class="note" id="track-note">The film is cut to this song's beat (105 BPM). The page edits it to exactly one minute.</p>
+    </div>
+    <div class="card">
+      <h2>2. Render</h2>
+      <div class="seg" role="group" aria-label="Codec">
+        <button data-codec="hevc" aria-pressed="true">HEVC · best quality</button>
+        <button data-codec="avc" aria-pressed="false">H.264 · plays everywhere</button>
+      </div>
+      <p class="note" id="enc-note">Checking the encoder…</p>
+      <div class="row">
+        <button class="btn primary" id="render" disabled>Render 4K film</button>
+        <button class="btn" id="cancel" hidden>Cancel</button>
+      </div>
+      <div class="bar" id="bar"><span></span></div>
+      <p class="note" id="status">Add the track to start. The film renders frame by frame on this computer's GPU and hardware encoder.</p>
+      <div class="result" id="result" hidden>
+        <button class="btn primary" id="save-film">Save film (MP4)</button>
+        <button class="btn" id="save-poster">Save poster (4K PNG)</button>
+        <p class="note" id="save-note"></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<dialog class="loupe" id="loupe">
+  <div class="loupe-bar"><span id="loupe-t"></span><span class="loupe-hint">Click the frame to switch between fit and 1:1</span><button class="btn" id="loupe-close">Close</button></div>
+  <canvas id="loupe-cv" class="fit"></canvas>
+</dialog>
+<script type="module" src="app.js"></script>
+</body>
+</html>
