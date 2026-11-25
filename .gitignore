@@ -1,0 +1,23 @@
+node_modules
+.next
+out
+*.log
+.DS_Store
+tsconfig.tsbuildinfo
+
+# build output
+artifact/app.js
+artifact/app.css
+film/artifact/app.js
+film/artifact/app.css
+.harness/harness.js
+
+# scratch: test bundles, screenshots, renders, design-tool notes
+.test
+.shots
+.xh
+.impeccable
+.taste-skill
+*.mp4
+*.mp3
+film/work

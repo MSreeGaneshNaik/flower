@@ -1,0 +1,37 @@
+{
+  "name": "flower",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Flower: a 3D flower drawn in letters. Write on its petals, send it as a link, let it bloom.",
+  "homepage": "https://msreeganeshnaik.github.io/flower/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MSreeGaneshNaik/flower.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "npx serve out",
+    "harness": "esbuild scripts/harness.ts --bundle --format=iife --target=es2020 --outfile=.harness/harness.js",
+    "artifact": "esbuild scripts/artifact.tsx --bundle --minify --format=iife --target=es2020 --jsx=automatic --loader:.woff2=dataurl --loader:.woff=dataurl --define:process.env.NODE_ENV='\"production\"' --outfile=artifact/app.js",
+    "test": "esbuild lib/share.test.ts --bundle --platform=node --format=esm --outfile=.test/share.test.mjs --log-level=warning && node --test .test/share.test.mjs",
+    "film": "cd film && npm install --no-audit --no-fund && npm run build",
+    "deploy": "sh scripts/deploy.sh"
+  },
+  "dependencies": {
+    "@fontsource/archivo": "^5.3.0",
+    "@fontsource/courier-prime": "^5.3.0",
+    "gifenc": "^1.0.3",
+    "next": "^16.4.6",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.7.0"
+  }
+}
